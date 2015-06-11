@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def login
     puts params
-    if request.get?
+    if request.post?
       session[:user] = User.authenticate(params[:user][:name], params[:user][:password])
       redirect_to :action=>"welcome"
     else
