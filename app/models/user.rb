@@ -19,7 +19,17 @@ attr_accessor :password, :password_confirmation
   def self.authenticate(login, pass)
     user_auth = User.find(:first, :conditions=>["login = ?", login])
     return nil if user_auth.nil?
-     return user_auth if User.encrypt(pass,user_auth.salt)==user_auth.hashedpassword     
+     return user_auth if User.encrypt(pass,user_auth.salt)==user_auth.hashedpassword
+  end
+
+
+  def self.new_password(name,old,new)
+    user = where(:name=>name)
+     #puts user.email
+
+     # how to call setter(password) method from here. because   My idea is
+     #if User.encrypt(old, user.salt)==user.hashedpassword
+     # run def password=(pass), thereby storing new password.
   end
 
   def self.random_met(len)

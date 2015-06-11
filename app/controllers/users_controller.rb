@@ -22,12 +22,25 @@ class UsersController < ApplicationController
 
   def login
     puts params
-    if request.get?
+    if request.post?
       session[:user] = User.authenticate(params[:user][:name], params[:user][:password])
       redirect_to :action=>"welcome"
     else
-      redirect_to :action=>"signup"
+    #  redirect_to :action=>"signup"
     end
+  end
+
+
+
+  def change_password
+
+    puts "**********************"
+    puts params
+    puts "**********************"
+
+    if request.post?
+     @pass_change = User.new_password(params[:user][:name], params[:user][:password], params[:user][:new_password])
+   end
   end
 
   def welcome

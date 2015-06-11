@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
 
+
+  resources :users
+
   get 'users/register', :to=>'users#register'
   get 'users/signup', :to=>'users#signup'
   post 'users/signup', :to=>'users#signup'
   post 'users/login', :to=>'users#login'
+  get 'users/login', :to=>'users#login'
+  post "users/change_password" => "users#change_password"
+  get "users/change_password" => "users#change_password"
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
