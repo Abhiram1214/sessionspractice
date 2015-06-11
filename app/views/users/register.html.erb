@@ -1,0 +1,19 @@
+ <h4>New User Registration</h4> <br/><br/><br/>
+
+<%= form_tag :action=> "signup"  do %>
+
+   <label for="user_login">Username</label><br/>
+   <%= text_field "user", "name" %><br/>
+
+   <label for="user_email">email</label><br/>
+   <%= text_field "user", "email" %><br/>
+
+   <label for="user_password">password</label><br/>
+   <%= text_field "user", "password" %><br/>
+
+   <label for="user_confirmpassword">password_confirmation</label><br/>
+   <%= text_field "user", "password_confirmation" %><br/>
+
+   <%= submit_tag "Signup" %>
+
+<%end%>
