@@ -1,12 +1,34 @@
-<%= link_to "New User", users_signup_path %><br>
+
+<div class="container">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+<%= link_to "New User", users_register_path %><br>
 <%= link_to "Login", users_login_path %><br>
 
 <%= link_to "Change Password", users_change_password_path %><br>
 
+<%= link_to "logout" , users_logout_path %>
 
 <h4>List of Users </h4><br>
 
 
-<% @user_details.each do |details| %>
-  <%= details.name %>   <%= details.email %>
-<%end%>
+<table class="table table-hover">
+ <tr>
+   <td><h5>User</h5></td>
+   <td><h5>email</h5></td>
+   <td><h5>Action</h5></td>
+ </tr>
+
+     <% @user_details.each do |details| %>
+ <tr>
+   <td> <h5><%= details.name %> </h5></td>
+   <td> <h5><%= details.email %> </h5> </td>
+   <td></td>
+ </tr>
+
+    <%end%>
+</table>
+</div>

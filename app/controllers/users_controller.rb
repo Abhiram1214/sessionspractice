@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def signup
     @new_user = User.new(user_register)
     if @new_user.save
-      session[:user] = User.authenticate(@user.name,@user.password)
+      session[:user] = User.authenticate(@new_user.name,@new_user.password)
       redirect_to :action=>"welcome"
     else
       redirect_to :action=>"login"
@@ -31,6 +31,11 @@ class UsersController < ApplicationController
   end
 
 
+  def logout
+    session[:user] = nil
+    flash[:message] = 'Logged out'
+    redirect_to :action => 'login' 
+  end
 
   def change_password
 

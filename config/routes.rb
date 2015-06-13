@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  resources :users
+
 
   get 'users/register', :to=>'users#register'
   get 'users/signup', :to=>'users#signup'
@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   get 'users/login', :to=>'users#login'
   post "users/change_password" => "users#change_password"
   get "users/change_password" => "users#change_password"
+  get "users/welcome" => "users#welcome"
+  get "users/logout" => "users#logout"
 
-
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

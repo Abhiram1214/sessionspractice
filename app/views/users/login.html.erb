@@ -1,6 +1,6 @@
 <h1>Users login</h1>
 
-<%= form_tag :action=> "login" do %>
+<%= form_tag do %>
     <h3>Login</h3>
 
   <label for="user_login">Login:</label><br/>
@@ -10,5 +10,5 @@
   <%= password_field "user", "password", :size => 20 %><br/>
 
   <%= submit_tag "submit" %>
-  
+
 <% end %>

@@ -16,15 +16,16 @@ attr_accessor :password, :password_confirmation
     Digest::SHA1.hexdigest(pass+salt)
   end
 
-  def self.authenticate(login, pass)
-    user_auth = User.find(:first, :conditions=>["login = ?", login])
+  def self.authenticate(name, pass)
+    user_auth = User.find_by_name(name)
     return nil if user_auth.nil?
-     return user_auth if User.encrypt(pass,user_auth.salt)==user_auth.hashedpassword
+     return user_auth if User.encrypt(pass, user_auth.salt)==user_auth.hashedpassword
+     nil
   end
 
 
   def self.new_password(name,old,new)
-    user = where(:name=>name)
+    user = where_by_name(:name=>name)
      #puts user.email
 
      # how to call setter(password) method from here. because   My idea is
